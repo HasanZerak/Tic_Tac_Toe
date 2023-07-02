@@ -1,3 +1,190 @@
-body{
-    background-color: red;
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*------------------------------------------------------Decision-Box--------------------------------------------------------*/
+.decision_card_container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.decision_card {
+  border: 2px black solid;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 26rem;
+  height: 14rem;
+
+  display: grid;
+  grid-template-rows: 1fr 2fr 1fr;
+  place-items: center;
+}
+
+/*---------------------------------------------------Decision-Box-Buttons--------------------------------------------------------*/
+
+.decision_card div {
+  display: flex;
+  gap: 10rem;
+}
+
+.decision_card div button {
+  appearance: none;
+
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  box-shadow: 0px 6px 8px 2px rgb(255, 99, 71, 0.3);
+  background: rgb(200, 77, 71, 0.9);
+  font-size: 2rem;
+  color: #fff;
+
+  cursor: pointer;
+  outline: none;
+  margin: 2rem 0;
+}
+
+.decision_card div button:hover {
+  border: none;
+  font-size: 2.1rem;
+  background: rgb(255, 77, 71, 0.9);
+  box-shadow: 0px 3px 2px 1px rgb(255, 99, 71, 0.9);
+}
+
+.decision_card div button:active {
+  border: none;
+  box-shadow: none !important;
+  transform: translateY(6px);
+  transition: All 250ms ease;
+}
+
+.decision_card > p{
+  font-size: 1rem;
 }
