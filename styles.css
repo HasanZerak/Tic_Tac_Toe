@@ -131,12 +131,18 @@ table {
 /*------------------------------------------------------Decision-Box--------------------------------------------------------*/
 .decision_card_container {
   min-height: 100vh;
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
 }
 
 .decision_card {
+  position: absolute;
+  z-index: 2;
+  justify-self: center;
+  background-color: blue;
+  /* opacity: 0.2; */
+
   border: 2px black solid;
   border-radius: 12px;
   padding: 1rem;
@@ -146,6 +152,9 @@ table {
   display: grid;
   grid-template-rows: 1fr 2fr 1fr;
   place-items: center;
+
+  visibility: visible;
+  /* transition: 0.4s; */
 }
 
 /*---------------------------------------------------Decision-Box-Buttons--------------------------------------------------------*/
@@ -187,4 +196,43 @@ table {
 
 .decision_card > p{
   font-size: 1rem;
+}
+
+/*---------------------------------------------------Game-Board--------------------------------------------------------*/
+
+.game_board{
+  position: relative;
+  background-color: red;
+  width: 20rem;
+  height: 20rem;
+  border: none;
+  border-radius: 10px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template: repeat(3, 1fr)/repeat(3, 1fr);
+
+  visibility: hidden;
+}
+
+.box{
+  /* border: 2px solid black; */
+}
+
+.game_board :nth-child(5){
+  border: 2px solid black;
+}
+
+.game_board :nth-child(2), .game_board :nth-child(8){
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+}
+
+.game_board :nth-child(4), .game_board :nth-child(6){
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.open_game_board{
+  visibility: visible;
 }
