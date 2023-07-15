@@ -197,8 +197,38 @@ table {
 .decision_card > p{
   font-size: 1rem;
 }
+/*----------------------------------------------------------Main-Body----------------------------------------------------------*/
 
-/*---------------------------------------------------Game-Board--------------------------------------------------------*/
+.main_body{
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.header{
+  background-color: red;
+  /* display: flex; */
+  /* flex-direction: row; */
+}
+
+.game_and_score{
+  flex: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8rem;
+}
+
+.footer{
+  background-color: yellow;
+}
+
+
+/*--------------------------------------------------------Game-Board------------------------------------------------------------*/
 
 .game_board{
   position: relative;
@@ -207,7 +237,6 @@ table {
   height: 20rem;
   border: none;
   border-radius: 10px;
-  margin: 0 auto;
 
   display: grid;
   grid-template: repeat(3, 1fr)/repeat(3, 1fr);
@@ -215,9 +244,9 @@ table {
   visibility: hidden;
 }
 
-.box{
+/* .box{ */
   /* border: 2px solid black; */
-}
+/* } */
 
 .game_board :nth-child(5){
   border: 2px solid black;
