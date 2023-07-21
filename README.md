@@ -19,6 +19,19 @@ A tic tac toe game to play with your friends or a bot.
    d. target div's text content is replaced with the last element in the gameBoard array.
 
 8. Make seperate functions for displaying, switching turns and checking conditions, namely:
-   a. displayMark() : display the latest change in the array. //displayController Module.
-   b. makeMove() : displayMark() calls this function to switch turns and check conditions. //gameBoard module.  
-   c. swiitchTurn() : switch turns and push the move into gameBoard aray. //gameBoard module.
+   a. displayMark() : display the latest change in the array. **//displayController Module**.
+   b. makeMove() : displayMark() calls this function to switch turns and check conditions. **//gameBoard module**.  
+   c. swiitchTurn() : switch turns and push the move into gameBoard aray. **//gameBoard module**.
+
+9. Creating the logic behind the game:
+   a. We define an array win[], and have it store all of the winning possibilities.
+   b. create a function checkWin() to run the logic.
+   c. loop over the win entire win[]'s length.
+   d. at each iteration,
+      i. create const box0, box1 and box2.
+      ii. Each of these const stores the value of target index concatenated with the target sign. (eg. "3X", "5O").
+      iii. Each box ultimately stores either true or false based on the result of 'includes()' method.
+      iv. includes() method tells wether the target exist in the board array or not.
+   e. an if statement in the loop checks if all three box const evaluate to true, and if they do, executes the win statement.
+   f. checkWin() is called in the displayController module everytime a new button is clicked.
+   **p.s. the logic at this point exists only for 'cross'**

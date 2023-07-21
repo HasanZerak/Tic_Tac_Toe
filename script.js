@@ -6,9 +6,10 @@ const player = (playerName, sign) => {
   return { getPlayerName, getPlayerSign };
 };
 
-const gameBoard = (() => {
+gameBoard = (() => {
   //module for the game board
   let board = []; //gameBoard array to store player moves.
+  let boardPosition = [];
 
   let globalFlag = 0; //variable to decide the whose turn it is.
   let player1 = player("player1", "X");
@@ -17,8 +18,11 @@ const gameBoard = (() => {
   const switchTurn = (sign, flag, index) => {
     //function to switch turns.
     globalFlag = flag; //swaps the current player.
-    board.push(sign); //push the sign to the end of array
+    board.push(sign); //push the sign to the end of array.
     displayController.displayMark(index); //display the new array, func resides in the displayController module.
+    boardPosition.push(`${index}${sign}`);
+    checkWin(sign);
+    // console.log(boardPosition);
   };
 
   const makeMove = (index) => {
@@ -32,7 +36,35 @@ const gameBoard = (() => {
     }
   };
 
-  return { board, makeMove };
+  const win = [     //array to store all win possibilities. 
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+
+  const checkWin = (playerSign) => {      //function to check if a player has won.
+    for (let i = 0; i < win.length; i++) {  //each winning possibility
+      const options = win[i]; //a single winning possibility
+
+      const box0 = boardPosition.includes(options[0] + playerSign);  //concatenate the index and sign.
+      const box1 = boardPosition.includes(options[1] + playerSign);  //each box is the element of the current winning possibilty 
+      const box2 = boardPosition.includes(options[2] + playerSign);  //in succession.
+
+      if (box0 && box1 && box2) {   //check if every box evaluates to true, e.i.box has target value.
+        return console.log("win");
+      }
+    }
+    if(boardPosition.length > 8){
+      console.log("tie");
+    }
+  };
+
+  return { board, makeMove, checkWin };
 })();
 
 const displayController = (() => {
@@ -72,6 +104,8 @@ const displayController = (() => {
         //loop over each button, cross matching the target button and board.
         if (i == j) {
           gameBoard.makeMove(j); //exedutes makeMove() residing in the gameBoard Module, to decide the sign and player.
+          // console.log(i);
+          // gameBoard.checkWin(); //executes the checkWin() residing in the gameBoard module. 
         }
       }
     }

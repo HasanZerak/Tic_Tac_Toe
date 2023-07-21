@@ -266,6 +266,11 @@ table {
   border-bottom: 2px solid black;
 }
 
+.box button{
+  height: 2rem;
+  width: 2rem;
+}
+
 .open_game_board{
   visibility: visible;
 }
