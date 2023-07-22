@@ -201,7 +201,7 @@ table {
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .header{
@@ -270,4 +270,16 @@ table {
 
 .open_game_board{
   visibility: visible;
+}
+
+/*--------------------------------------------------------After-Battle------------------------------------------------------------*/
+.after-battle{
+  background-color: yellow;
+  width: 30%;
+  height: 30%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

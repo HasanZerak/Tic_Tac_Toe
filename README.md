@@ -40,3 +40,13 @@ A tic tac toe game to play with your friends or a bot.
 10. Added players funtion so that the names and sign would only have to be assigned once. 
 11. I scratched the previously implemented decisiomn box in favour of a form. Now the user can also enter their name. 
 12. Added functionality to the reset button to reload the screen on every press. 
+
+13. Added a button to move to the next round. 
+    a. Game keeps track of the score. 
+    b. While doing so I removed a for loop in the grid/box eventListeners since it was redundant. 
+      There was no reason to check equality of loops. 
+14. Added score funtion to manage scores and assigned individulas variabbels to store scores. 
+    a. user now has chance to either move to next round or quit the game. 
+    p.s. : Quit game button simply reloads the page, works the same as reset button. 
+
+15. 

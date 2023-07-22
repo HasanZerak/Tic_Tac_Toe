@@ -9,14 +9,15 @@ const player = (playerName, sign) => {
 gameBoard = (() => {
   //module for the game board
   let board = []; //gameBoard array to store player moves.
-  let boardPosition = [];
+  let boardPosition = []; //stores `index + sign` to determine winning player.
 
   let globalFlag = 0; //variable to decide the whose turn it is.
 
-  let player1 = player("", "X");  
+  let player1 = player("", "X");
   let player2 = player("", "O");
 
-  const players = (crossPlayer, zeroPlayer) => {  //assign players.
+  const players = (crossPlayer, zeroPlayer) => {
+    //assign players.
     player1.playerName = crossPlayer;
     player2.playerName = zeroPlayer;
   };
@@ -26,19 +27,16 @@ gameBoard = (() => {
     globalFlag = flag; //swaps the current player.
     board.push(sign); //push the sign to the end of array.
     displayController.displayMark(index); //display the new array, func resides in the displayController module.
-    boardPosition.push(`${index}${sign}`);
+    boardPosition.push(`${index}${sign}`); //push concatenated value of index + sign.
     checkWin(sign);
-    // console.log(boardPosition);
   };
 
   const makeMove = (index) => {
     //fucntion to execute switch and check turn conditions. Called in the displayController Module.
     if (globalFlag == 0) {
       switchTurn(player1.getPlayerSign(), "1", index);
-      // console.log("does this even work??");
     } else {
       switchTurn(player2.getPlayerSign(), "0", index);
-      // console.log("what about this");
     }
   };
 
@@ -54,10 +52,13 @@ gameBoard = (() => {
     [2, 4, 6],
   ];
 
-  const win_statement = () => {   //executes when either player wins. 
+  const win_statement = () => {
+    //executes when either player wins.
     if (globalFlag == 1) {
+      displayController.score("c"); //update scorecard function.
       console.log(`${player1.playerName} wins this round!!`);
     } else {
+      displayController.score("z"); //update scorecard function.
       console.log(`${player2.playerName} wins this round!!`);
     }
   };
@@ -80,28 +81,52 @@ gameBoard = (() => {
     if (boardPosition.length > 8) {
       //if the boardPosition array reaches 8th index without any winner, the must be a tie.
       console.log("tie");
+      displayController.score("d"); //update scorecard function.
     }
   };
 
-  return { board, makeMove, checkWin, players };
+  const nextRoundFunc = () => {
+    //function to begin the next round.
+    boardPosition = []; //since new positions will be assigned, array is emptied;
+    globalFlag = 0; //keep track of player turn after each round.
+  };
+
+  return { board, makeMove, checkWin, players, nextRoundFunc };
 })();
 
 const displayController = (() => {
   //module to manuipulate display on screen.
+
   //cacheDOM
   let card_container = document.querySelector(".card_container");
   let game_board = document.querySelector(".game_board");
   let decision_card = document.querySelector(".decision_card");
-  let box = document.querySelectorAll(".box");
   let box_button = document.querySelectorAll(".box_button");
   let popup = document.querySelector(".popup");
   let crossInput = document.querySelector("#player1");
   let zeroInput = document.querySelector("#player2");
-  let resetBtn = document.querySelector(".reset");
+  let resetBtn = document.querySelectorAll(".reset");
+  let nextRoundBtn = document.querySelector(".nextRoundBtn");
+  let crossScore = document.querySelector(".crossScore");
+  let zeroScore = document.querySelector(".zeroScore");
+  let drawScore = document.querySelector(".drawScore");
+
+  const score = (sign) => {
+    //score function to update score card
+    if (sign == "c") {
+      crossScore.textContent++; //increment score
+    }
+    if (sign == "z") {
+      zeroScore.textContent++; //''
+    }
+    if (sign == "d") {
+      drawScore.textContent++; //''
+    }
+  };
 
   popup.addEventListener("click", function () {
     //Event listener to remove the card and popup gameboard.
-    if (crossInput.value.length > 3 || zeroInput.value.length > 3) {
+    if (crossInput.value.length > 3 && zeroInput.value.length > 3) {
       //lenght of the name
       gameBoard.players(crossInput.value, zeroInput.value); //function to pass input to the game.
       card_container.removeChild(decision_card); //remove
@@ -109,9 +134,19 @@ const displayController = (() => {
     }
   });
 
-  resetBtn.addEventListener("click", function () {
-    //reload/reset the page
-    reset();
+  nextRoundBtn.addEventListener("click", function () {
+    //event listerner for next round btn press.
+    gameBoard.nextRoundFunc(); //function calls, function resides at the end of gameBoard module.
+    for (let i = 0; i < 9; i++) {
+      box_button[i].textContent = ""; //removing the text content of each button by looping through them.
+    }
+  });
+
+  resetBtn.forEach((btn) => {
+    //event listerner for the reset and quit game button.
+    btn.addEventListener("click", function () {
+      reset();
+    });
   });
 
   const reset = () => {
@@ -120,7 +155,7 @@ const displayController = (() => {
 
   //function to display the sign.
   const displayMark = (index) => {
-    box[index].textContent = gameBoard.board[gameBoard.board.length - 1]; //push the last entry in the gameBoard array onto the board.
+    box_button[index].textContent = gameBoard.board[gameBoard.board.length - 1]; //push the last entry in the gameBoard array onto the board.
   };
 
   for (let i = 0; i < box_button.length; i++) {
@@ -130,14 +165,9 @@ const displayController = (() => {
     function mark() {
       //function to respond when the target button is pressed & to display the sign on the board.
 
-      for (let j = 0; j < box.length; j++) {
-        //loop over each button, cross matching the target button and board.
-        if (i == j) {
-          gameBoard.makeMove(j); //exedutes makeMove() residing in the gameBoard Module, to decide the sign and player.
-        }
-      }
+      gameBoard.makeMove(i); //executes makeMove() residing in the gameBoard Module,  to decide the sign and player.
     }
   }
 
-  return { displayMark };
+  return { displayMark, score };
 })();
