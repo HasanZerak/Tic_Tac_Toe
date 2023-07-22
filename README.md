@@ -34,4 +34,9 @@ A tic tac toe game to play with your friends or a bot.
       iv. includes() method tells wether the target exist in the board array or not.
    e. an if statement in the loop checks if all three box const evaluate to true, and if they do, executes the win statement.
    f. checkWin() is called in the displayController module everytime a new button is clicked.
-   **p.s. the logic at this point exists only for 'cross'**
+   g. A tie can be determined if the boardPosition array reaches the length of 8, since no one has won yet, it must be a tie.
+   **p.s. the logic at this point exists only for 'cross'**.
+
+10. Added players funtion so that the names and sign would only have to be assigned once. 
+11. I scratched the previously implemented decisiomn box in favour of a form. Now the user can also enter their name. 
+12. Added functionality to the reset button to reload the screen on every press. 

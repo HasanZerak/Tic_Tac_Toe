@@ -128,13 +128,13 @@ table {
   border-spacing: 0;
 }
 
-/*------------------------------------------------------Decision-Box--------------------------------------------------------*/
-.decision_card_container {
+.card_container {
   min-height: 100vh;
   display: grid;
   justify-content: center;
   align-items: center;
 }
+/*------------------------------------------------------Decision-Box--------------------------------------------------------*/
 
 .decision_card {
   position: absolute;
@@ -152,9 +152,6 @@ table {
   display: grid;
   grid-template-rows: 1fr 2fr 1fr;
   place-items: center;
-
-  visibility: visible;
-  /* transition: 0.4s; */
 }
 
 /*---------------------------------------------------Decision-Box-Buttons--------------------------------------------------------*/
@@ -241,7 +238,7 @@ table {
   display: grid;
   grid-template: repeat(3, 1fr)/repeat(3, 1fr);
 
-  /* visibility: hidden; */
+  visibility: hidden;
 }
 
 .box{

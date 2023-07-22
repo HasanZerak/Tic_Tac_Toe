@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div class="decision_card_container">
+    <div class="card_container">
         <!-- <div id="decision_card" class="decision_card">
             <p>Choose your sign</p>
             <div class="shapes">
@@ -18,6 +18,24 @@
             </div>
             <p style="font-size: 0.8rem;">Remember X goes first!!</p>
         </div> -->
+        <form id="decision_card" class="decision_card">
+            <fieldset>
+                <legend>Players</legend>
+                <div>
+                    <label for="player1">Cross: <span aria-label="requried">*</span> </label>
+                    <input id="player1" type="text" name="cross" placeholder="Enter name" autocomplete="off"
+                        minlength="4" maxlength="25" required>
+                </div>
+                <div>
+                    <label for="player2">Zero: <span aria-label="requried">*</span> </label>
+                    <input id="player2" type="text" name="zero" placeholder="Enter name" autocomplete="off"
+                        minlength="4" maxlength="25" required>
+                </div>
+
+                <button id="popup" class="popup">Let's GO!!</button>
+            </fieldset>
+        </form>
+
         <div class="main_body">
             <div class="header">
                 <span>X O</span>
