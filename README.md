@@ -49,4 +49,7 @@ A tic tac toe game to play with your friends or a bot.
     a. user now has chance to either move to next round or quit the game. 
     p.s. : Quit game button simply reloads the page, works the same as reset button. 
 
-15. 
+15. Created a basic score-card and added a function to  display it when either player wins, or the game draws. 
+   a. This score card contains, next round and exit button. 
+
+   

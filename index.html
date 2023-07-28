@@ -10,7 +10,7 @@
 
 <body>
     <div class="card_container">
-        <form id="decision_card" class="decision_card" >
+        <form id="decision_card" class="decision_card">
             <fieldset>
                 <legend>Players</legend>
                 <div>
@@ -64,14 +64,17 @@
                     <div class="box">
                         <button type="submit" class="box_button"></button>
                     </div>
+                    <!-- </div> -->
                 </div>
+
+
                 <div class="after-battle">
                     <div>won</div>
                     <table class="score">
                         <tr>
-                            <td>X</td>
-                            <td>O</td>
-                            <td>D</td>
+                            <td class="crossName">X</td>
+                            <td class="zeroName">O</td>
+                            <td class="drawName">Draw</td>
                         </tr>
                         <tr>
                             <td class="crossScore">0</td>
@@ -80,17 +83,18 @@
                         </tr>
                     </table>
                     <div>
-                    <button class="nextRoundBtn">Next</button>
-                    <button class="reset">Exit</button>
-                </div>
+                        <button class="nextRoundBtn">Next</button>
+                        <button class="reset">Exit</button>
+
+                    </div>
                 </div>
             </div>
             <div class="footer">
                 <p>ZauQ</p>
             </div>
+
         </div>
-    </div>
-    <script src="script.js"></script>
+        <script src="script.js"></script>
 </body>
 
 </html>

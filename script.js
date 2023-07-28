@@ -110,6 +110,9 @@ const displayController = (() => {
   let crossScore = document.querySelector(".crossScore");
   let zeroScore = document.querySelector(".zeroScore");
   let drawScore = document.querySelector(".drawScore");
+  let crossName = document.querySelector(".crossName");
+  let zeroName = document.querySelector(".zeroName");
+  let after_battle = document.querySelector(".after-battle");
 
   const score = (sign) => {
     //score function to update score card
@@ -122,19 +125,32 @@ const displayController = (() => {
     if (sign == "d") {
       drawScore.textContent++; //''
     }
+    console.log("I kn ow this wored")
+    after_battle.style.visibility = "visible";
   };
 
   popup.addEventListener("click", function () {
     //Event listener to remove the card and popup gameboard.
     if (crossInput.value.length > 3 && zeroInput.value.length > 3) {
       //lenght of the name
-      gameBoard.players(crossInput.value, zeroInput.value); //function to pass input to the game.
+      gameBoard.players(crossInput.value, zeroInput.value); //function to pass input to the game. 
+      crossName.textContent = crossInput.value;
+      zeroName.textContent = zeroInput.value;
       card_container.removeChild(decision_card); //remove
-      game_board.style.visibility = "visible"; //popup
+      open(game_board);
+      // game_board.style.visibility = "visible"; //popup
     }
   });
 
+  const open = (attr) => {
+    attr.style.visibility = "visible";
+  }
+  const close = (attr) => {
+    attr.style.visibility = "hidden";
+  }
+
   nextRoundBtn.addEventListener("click", function () {
+    close(after_battle);
     //event listerner for next round btn press.
     gameBoard.nextRoundFunc(); //function calls, function resides at the end of gameBoard module.
     for (let i = 0; i < 9; i++) {
@@ -169,5 +185,5 @@ const displayController = (() => {
     }
   }
 
-  return { displayMark, score };
+  return { displayMark, score, open };
 })();
