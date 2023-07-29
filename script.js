@@ -55,11 +55,9 @@ gameBoard = (() => {
   const win_statement = () => {
     //executes when either player wins.
     if (globalFlag == 1) {
-      displayController.score("c"); //update scorecard function.
-      console.log(`${player1.playerName} wins this round!!`);
+      displayController.score("c", player1.playerName); //update scorecard function.
     } else {
-      displayController.score("z"); //update scorecard function.
-      console.log(`${player2.playerName} wins this round!!`);
+      displayController.score("z", player2.playerName); //update scorecard function.
     }
   };
 
@@ -80,7 +78,6 @@ gameBoard = (() => {
     }
     if (boardPosition.length > 8) {
       //if the boardPosition array reaches 8th index without any winner, the must be a tie.
-      console.log("tie");
       displayController.score("d"); //update scorecard function.
     }
   };
@@ -113,19 +110,22 @@ const displayController = (() => {
   let crossName = document.querySelector(".crossName");
   let zeroName = document.querySelector(".zeroName");
   let after_battle = document.querySelector(".after-battle");
+  let victor = document.querySelector(".victor");
 
-  const score = (sign) => {
+  const score = (sign, name) => {
     //score function to update score card
     if (sign == "c") {
+      victor.textContent = `${name} wins this round!!`;
       crossScore.textContent++; //increment score
     }
     if (sign == "z") {
+      victor.textContent = `${name} wins this round!!`;
       zeroScore.textContent++; //''
     }
     if (sign == "d") {
+      victor.textContent = `It's a Draw!!`;
       drawScore.textContent++; //''
     }
-    console.log("I kn ow this wored")
     after_battle.style.visibility = "visible";
   };
 
@@ -133,7 +133,7 @@ const displayController = (() => {
     //Event listener to remove the card and popup gameboard.
     if (crossInput.value.length > 3 && zeroInput.value.length > 3) {
       //lenght of the name
-      gameBoard.players(crossInput.value, zeroInput.value); //function to pass input to the game. 
+      gameBoard.players(crossInput.value, zeroInput.value); //function to pass input to the game.
       crossName.textContent = crossInput.value;
       zeroName.textContent = zeroInput.value;
       card_container.removeChild(decision_card); //remove
@@ -144,10 +144,10 @@ const displayController = (() => {
 
   const open = (attr) => {
     attr.style.visibility = "visible";
-  }
+  };
   const close = (attr) => {
     attr.style.visibility = "hidden";
-  }
+  };
 
   nextRoundBtn.addEventListener("click", function () {
     close(after_battle);

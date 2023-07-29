@@ -52,4 +52,6 @@ A tic tac toe game to play with your friends or a bot.
 15. Created a basic score-card and added a function to  display it when either player wins, or the game draws. 
    a. This score card contains, next round and exit button. 
 
-   
+16. Refactor the code. All that left now is to add design to the game!.
+
+
