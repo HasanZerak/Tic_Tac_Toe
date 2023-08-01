@@ -54,4 +54,13 @@ A tic tac toe game to play with your friends or a bot.
 
 16. Refactor the code. All that left now is to add design to the game!.
 
+17. Styling:
+   a. Restructure the entire document. 
+   b. Style the header and print player's turn. 
+   c. Style form.
+   d. **disable buttons when the score card is visible and enable them again before the next round** //JavaScript
+   e. Style the gameboard.
+   f. Ovdrlay scorecard over gameboard.
+   <!-- g. Style scorecad. -->
+
 

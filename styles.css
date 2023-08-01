@@ -281,6 +281,8 @@ fieldset button:active {
   visibility: hidden;
 }
 
+/*-----------------------------------------------------------Header----------------------------------------------------------*/
+
 .header {
   padding: 3rem 4rem;
   display: flex;
@@ -299,26 +301,24 @@ fieldset button:active {
   border: none;
 }
 
-.game_and_score > * {
-  grid-column-start: 1;
-  grid-row-start: 1;
+/*--------------------------------------------------------Game & Score------------------------------------------------------------*/
+
+.game_and_score{
+  display: grid;
+  max-height: 66%;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  height: 2.5rem;
-  width: 100%;
-  background-color: yellow;
+.game_and_score>*{
+  grid-area: 1/1;
 }
 
 /*--------------------------------------------------------Game-Board------------------------------------------------------------*/
 
 .game_board {
-  background-color: red;
+  background-color: transparent;
   width: 20rem;
   height: 20rem;
-  border-radius: 10px;
+  margin-left: 3.5%;
 
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
@@ -328,7 +328,6 @@ fieldset button:active {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 3rem;
 }
 
 .game_board :nth-child(5) {
@@ -348,10 +347,27 @@ fieldset button:active {
 }
 
 .box button {
-  height: 2rem;
-  width: 2rem;
+  background-color: transparent;
+  font-size: 3rem;
+  border: none;
+
+  cursor: pointer;
+
+  height: 6rem;
+  width: 6rem;
+}
+
+/*--------------------------------------------------------Footer------------------------------------------------------------*/
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  height: 2.5rem;
+  width: 100%;
+  background-color: yellow;
 }
 /*--------------------------------------------------------After-Battle------------------------------------------------------------*/
+
 .after-battle {
   background-color: yellow;
   padding: 2rem;

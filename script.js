@@ -129,7 +129,11 @@ const displayController = (() => {
       victor.textContent = `It's a Draw!!`;
       drawScore.textContent++; //''
     }
-    after_battle.style.visibility = "visible";
+
+    for(let i = 0; i<9; i++ ){    
+      box_button[i].disabled = true;    //temporarily disable all buttons.
+    } 
+    after_battle.style.visibility = "visible";  //display score. 
   };
 
   const printTurn = (name) => {
@@ -159,7 +163,11 @@ const displayController = (() => {
   nextRoundBtn.addEventListener("click", function () {
     close(after_battle);
     //event listerner for next round btn press.
+    for(let i = 0; i<9; i++ ){
+      box_button[i].disabled = false; //enable all buttons that were temporarily disabled
+    } 
     gameBoard.nextRoundFunc(); //function calls, function resides at the end of gameBoard module.
+    box_button.disabled = false;
     for (let i = 0; i < 9; i++) {
       box_button[i].textContent = ""; //removing the text content of each button by looping through them.
     }
