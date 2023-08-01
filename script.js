@@ -35,8 +35,10 @@ gameBoard = (() => {
     //fucntion to execute switch and check turn conditions. Called in the displayController Module.
     if (globalFlag == 0) {
       switchTurn(player1.getPlayerSign(), "1", index);
+      displayController.printTurn(player2.playerName);
     } else {
       switchTurn(player2.getPlayerSign(), "0", index);
+      displayController.printTurn(player1.playerName);
     }
   };
 
@@ -96,7 +98,7 @@ const displayController = (() => {
 
   //cacheDOM
   let card_container = document.querySelector(".card_container");
-  let game_board = document.querySelector(".game_board");
+  let main_body = document.querySelector(".main_body");
   let decision_card = document.querySelector(".decision_card");
   let box_button = document.querySelectorAll(".box_button");
   let popup = document.querySelector(".popup");
@@ -111,6 +113,7 @@ const displayController = (() => {
   let zeroName = document.querySelector(".zeroName");
   let after_battle = document.querySelector(".after-battle");
   let victor = document.querySelector(".victor");
+  let turn = document.querySelector(".header span:nth-child(2)");
 
   const score = (sign, name) => {
     //score function to update score card
@@ -129,6 +132,10 @@ const displayController = (() => {
     after_battle.style.visibility = "visible";
   };
 
+  const printTurn = (name) => {
+    turn.textContent = `${name}'s turn`;
+  };
+
   popup.addEventListener("click", function () {
     //Event listener to remove the card and popup gameboard.
     if (crossInput.value.length > 3 && zeroInput.value.length > 3) {
@@ -136,9 +143,9 @@ const displayController = (() => {
       gameBoard.players(crossInput.value, zeroInput.value); //function to pass input to the game.
       crossName.textContent = crossInput.value;
       zeroName.textContent = zeroInput.value;
+      turn.textContent = `${crossInput.value}'s turn`;
       card_container.removeChild(decision_card); //remove
-      open(game_board);
-      // game_board.style.visibility = "visible"; //popup
+      open(main_body); //popup
     }
   });
 
@@ -185,5 +192,5 @@ const displayController = (() => {
     }
   }
 
-  return { displayMark, score, open };
+  return { displayMark, score, printTurn };
 })();

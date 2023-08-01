@@ -128,8 +128,14 @@ table {
   border-spacing: 0;
 }
 
-*{
-  background-color: black;
+body {
+  background-image: url("marjan-blan-5Ft4NWTmeJE-unsplash.jpg");
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center;
 }
 
 .card_container,
@@ -138,7 +144,7 @@ table {
   display: grid;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 /*------------------------------------------------------Decision-Box--------------------------------------------------------*/
 
@@ -194,10 +200,26 @@ table {
   display: grid;
   width: 100vw;
   position: relative;
+
+  visibility: hidden;
 }
 
 .header {
-  background-color: red;
+  padding: 3rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header span:nth-child(1) {
+  font-size: 2rem;
+}
+
+.header button {
+  font-size: 2rem;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
 }
 
 .game_and_score > * {
@@ -223,8 +245,6 @@ table {
 
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-
-  visibility: hidden;
 }
 
 .box {
