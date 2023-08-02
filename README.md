@@ -61,6 +61,6 @@ A tic tac toe game to play with your friends or a bot.
    d. **disable buttons when the score card is visible and enable them again before the next round** //JavaScript
    e. Style the gameboard.
    f. Ovdrlay scorecard over gameboard.
-   <!-- g. Style scorecad. -->
+   g. Style scorecad.
 
 
