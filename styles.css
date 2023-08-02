@@ -127,6 +127,17 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+/*------------------------------------------------------Fonts--------------------------------------------------------*/
+
+/* @font-face {
+  font-family: "chalkboy";
+  src: url("fonts/chalkboy-font/ChalkboyRegular-vmXe7.otf");
+}
+
+@font-face {
+  font-family: thinPrint;
+  src: url(fonts/thin-print-font/ThinPrintRegular-ALl4A.ttf);
+} */
 
 body {
   background-image: url("marjan-blan-5Ft4NWTmeJE-unsplash.jpg");
@@ -136,11 +147,16 @@ body {
   -o-background-size: cover;
   background-size: cover;
   background-position: center;
+
+  box-sizing: border-box;
 }
 
-.card_container,
-.game_and_score {
-  height: 100vh;
+/* body *{
+  font-family: "chalkboy";
+  font-size: ;
+} */
+
+.card_container {
   display: grid;
   justify-content: center;
   align-items: center;
@@ -249,7 +265,7 @@ fieldset button,.after-battle button{
   border: none;
   padding: 0.5rem 1rem;
   margin-top: 1.5rem;
-  /* box-shadow: 0px 6px 8px 2px rgb(255, 99, 71, 0.3); */
+  box-shadow: 0px 6px 8px 2px rgb(255, 99, 71, 0.3);
   background: rgb(200, 77, 71, 0.9);
   font-size: 1rem;
   color: #fff;
@@ -274,9 +290,11 @@ fieldset button:active, .after-battle button:active {
 /*----------------------------------------------------------Main-Body----------------------------------------------------------*/
 
 .main_body {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+
+  height: 100vh;
   width: 100vw;
-  height: fit-content;
 
   visibility: hidden;
 }
@@ -284,7 +302,7 @@ fieldset button:active, .after-battle button:active {
 /*-----------------------------------------------------------Header----------------------------------------------------------*/
 
 .header {
-  padding: 2.5rem 4rem;
+  padding: 3rem 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -304,8 +322,12 @@ fieldset button:active, .after-battle button:active {
 /*--------------------------------------------------------Game & Score------------------------------------------------------------*/
 
 .game_and_score{
+  flex: 1;
+  margin-top: -6%;
+
   display: grid;
-  max-height: 66%;
+  justify-content: center;
+  align-items: center;
 }
 
 .game_and_score>*{
@@ -360,11 +382,14 @@ fieldset button:active, .after-battle button:active {
 /*--------------------------------------------------------Footer------------------------------------------------------------*/
 
 .footer {
-  /* position: absolute; */
-  /* bottom: 0; */
-  /* height: 2.5rem; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 2.5rem;
   width: 100%;
-  background-color: yellow;
+  background-color: transparent;
+  opacity: 0.3;
 }
 /*------------------------------------------------------After-Battle------------------------------------------------------------*/
 
