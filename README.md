@@ -62,5 +62,7 @@ A tic tac toe game to play with your friends or a bot.
    e. Style the gameboard.
    f. Ovdrlay scorecard over gameboard.
    g. Style scorecad.
+   h. Style footer.
+   i. Add and style fonts. 
 
 

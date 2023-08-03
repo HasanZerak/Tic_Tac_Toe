@@ -129,7 +129,7 @@ table {
 }
 /*------------------------------------------------------Fonts--------------------------------------------------------*/
 
-/* @font-face {
+@font-face {
   font-family: "chalkboy";
   src: url("fonts/chalkboy-font/ChalkboyRegular-vmXe7.otf");
 }
@@ -137,7 +137,7 @@ table {
 @font-face {
   font-family: thinPrint;
   src: url(fonts/thin-print-font/ThinPrintRegular-ALl4A.ttf);
-} */
+}
 
 body {
   background-image: url("marjan-blan-5Ft4NWTmeJE-unsplash.jpg");
@@ -147,24 +147,24 @@ body {
   -o-background-size: cover;
   background-size: cover;
   background-position: center;
-
-  box-sizing: border-box;
+  overflow: hidden;
 }
 
-/* body *{
-  font-family: "chalkboy";
-  font-size: ;
-} */
+body > * {
+  font-family: "indie flower";
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2;
+}
 
 .card_container {
   display: grid;
   justify-content: center;
   align-items: center;
-  /* overflow: hidden; */
 }
 /*------------------------------------------------------Decision-Box--------------------------------------------------------*/
 
-fieldset{
+fieldset {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -175,10 +175,8 @@ fieldset{
   letter-spacing: 0.2rem;
   line-height: 1;
   justify-self: center;
-  margin-top: 16%;
+  margin-top: 10%;
   background-color: transparent;
-
-  /* border: 2px black solid; */
   padding: 1rem;
 }
 
@@ -196,6 +194,12 @@ fieldset div input {
   -moz-appearance: none;
   appearance: none;
 
+  font-family: "indie flower";
+  font-weight: 700;
+  line-height: 2;
+
+  font-size: 1rem;
+
   padding: 0.4rem 0;
   width: 20rem;
   border: none;
@@ -210,7 +214,6 @@ fieldset div input:hover {
 }
 
 fieldset div input:invalid:focus {
-
   color: #d55c5f;
   border-radius: 0;
 }
@@ -226,61 +229,70 @@ fieldset div input + span::before {
 }
 
 fieldset div input + span::after {
-  font-size: 0.6rem;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
   position: absolute;
   top: 5px;
   left: 1px;
 }
 
-fieldset div input:invalid:focus+span::before {
+fieldset div input:invalid:focus + span::before {
+  font-size: 1rem;
   content: "❗";
   opacity: 0.7;
   color: #d55c5f;
 }
 
-fieldset div input:invalid:focus+span::after {
+fieldset div input:invalid:focus + span::after {
   content: "Must have more than 4 digits";
-  color: #D55C5F;
+  color: #d55c5f;
 }
 
-fieldset div input:valid+span::before {
+fieldset div input:valid + span::before {
+  font-size: 1.2rem;
   content: "✓";
   opacity: 1;
-  color: #ABC270;
+  color: #abc270;
 }
 
-fieldset div input::placeholder{
-  font-size: 12px;
+fieldset div input::placeholder {
+  font-size: 1.2;
   letter-spacing: 2px;
 }
 
-
 /*---------------------------------------------------Decision-Box+all-Button--------------------------------------------------------*/
 
-fieldset button,.after-battle button{
+fieldset button,
+.after-battle button {
   appearance: none;
   display: grid;
 
+  font-family: "indie flower";
+  font-weight: 700;
+  letter-spacing: 6px;
+
   border-radius: 6px;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 1rem;
   margin-top: 1.5rem;
   box-shadow: 0px 6px 8px 2px rgb(255, 99, 71, 0.3);
   background: rgb(200, 77, 71, 0.9);
-  font-size: 1rem;
+  font-size: 1.3rem;
   color: #fff;
 
   cursor: pointer;
 }
 
-fieldset button:hover, .after-battle button:hover {
+fieldset button:hover,
+.after-battle button:hover {
   border: none;
   font-size: 1.1rem;
   background: rgb(255, 77, 71, 0.9);
   box-shadow: 0px 3px 2px 1px rgb(255, 99, 71, 0.9);
 }
 
-fieldset button:active, .after-battle button:active {
+fieldset button:active,
+.after-battle button:active {
   border: none;
   box-shadow: none !important;
   transform: translateY(6px);
@@ -321,7 +333,7 @@ fieldset button:active, .after-battle button:active {
 
 /*--------------------------------------------------------Game & Score------------------------------------------------------------*/
 
-.game_and_score{
+.game_and_score {
   flex: 1;
   margin-top: -6%;
 
@@ -330,7 +342,7 @@ fieldset button:active, .after-battle button:active {
   align-items: center;
 }
 
-.game_and_score>*{
+.game_and_score > * {
   grid-area: 1/1;
 }
 
@@ -340,7 +352,7 @@ fieldset button:active, .after-battle button:active {
   background-color: transparent;
   width: 20rem;
   height: 20rem;
-  margin-left: 30%;
+  margin: 0 auto;
 
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
@@ -369,6 +381,7 @@ fieldset button:active, .after-battle button:active {
 }
 
 .box button {
+  font-family: "chalkboy";
   background-color: transparent;
   font-size: 3rem;
   border: none;
@@ -394,12 +407,11 @@ fieldset button:active, .after-battle button:active {
 /*------------------------------------------------------After-Battle------------------------------------------------------------*/
 
 .after-battle {
-  background-color: #EEEDED;
-  padding: 3rem;
+  background-color: #eeeded;
+  padding: 2rem 1rem;
   font-size: 1.1rem;
 
   display: flex;
-  gap: 3rem;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -411,22 +423,18 @@ fieldset button:active, .after-battle button:active {
   z-index: 1;
 }
 
-.after-battle div:first-of-type{
+.after-battle div:first-of-type {
   font-size: 1.4rem;
+  margin-bottom: 1.5rem;
 }
 
-.after-battle table td{
+.after-battle table td {
   font-size: 1rem;
-  padding: 1rem 5rem;
+  padding: 0.7rem 5rem;
   text-align: center;
 }
 
-.after-battle table td:nth-child(2){
-  border-right: 8px dotted black;
-  border-left: 8px dotted black; 
-}
-
-.after-battle div:last-of-type{
+.after-battle div:last-of-type {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -434,10 +442,10 @@ fieldset button:active, .after-battle button:active {
   gap: 3rem;
 }
 
-.after-battle button{
-  font-size: 1.2rem;
+.after-battle button {
+  font-size: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 3rem;
+  padding: 10px 20px;
 }

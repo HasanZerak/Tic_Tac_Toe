@@ -201,7 +201,11 @@ const displayController = (() => {
     function mark() {
       //function to respond when the target button is pressed & to display the sign on the board.
 
-      gameBoard.makeMove(i); //executes makeMove() residing in the gameBoard Module,  to decide the sign and player.
+      // for (let j = 0; j < box_button.length; j++) {
+        if (box_button[i].textContent == "") { //player may only enter a sign once. 
+          gameBoard.makeMove(i); //executes makeMove() residing in the gameBoard Module,  to decide the sign and player.
+        // }
+      }
     }
   }
 
