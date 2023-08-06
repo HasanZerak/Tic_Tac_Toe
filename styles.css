@@ -367,7 +367,6 @@ fieldset button:active,
 
 .box button {
   font-family: 'permanent marker';
-  /* font-weight: 700; */
   background-color: transparent;
   font-size: 3rem;
   border: none;
