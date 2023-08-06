@@ -58,11 +58,15 @@ A tic tac toe game to play with your friends or a bot.
    a. Restructure the entire document. 
    b. Style the header and print player's turn. 
    c. Style form.
-   d. **disable buttons when the score card is visible and enable them again before the next round** //JavaScript
-   e. Style the gameboard.
-   f. Ovdrlay scorecard over gameboard.
-   g. Style scorecad.
-   h. Style footer.
-   i. Add and style fonts. 
+      **disable buttons when the score card is visible and enable them again before the next round** //JavaScript
+   d. Style the gameboard.
+   e. Ovdrlay scorecard over gameboard.
+   f. Style scorecad.
+   g. Style footer.
+   h. Add and style fonts.
+      **removed a bug, player may enter a sign once on the same box** //JavaScript
+   i. Add colors. 
+
+<!-------------------------------------------------------------- OVER ------------------------------------------------------->
 
 

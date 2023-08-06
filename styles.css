@@ -139,6 +139,8 @@ table {
   src: url(fonts/thin-print-font/ThinPrintRegular-ALl4A.ttf);
 }
 
+/*------------------------------------------------------Body--------------------------------------------------------*/
+
 body {
   background-image: url("marjan-blan-5Ft4NWTmeJE-unsplash.jpg");
   background-repeat: no-repeat;
@@ -155,6 +157,13 @@ body > * {
   font-weight: 700;
   font-size: 2rem;
   line-height: 2;
+  color: rgb(63, 35, 5, 0.8);
+}
+
+button {
+  box-shadow: 0px 6px 8px 2px rgb(63, 35, 5, 0.3);
+  background: rgb(63, 35, 5, 0.7);
+  color: rgb(245, 245, 245, 0.8);
 }
 
 .card_container {
@@ -199,11 +208,12 @@ fieldset div input {
   line-height: 2;
 
   font-size: 1rem;
+  color: rgb(63, 35, 5);
 
   padding: 0.4rem 0;
   width: 20rem;
   border: none;
-  border-bottom: 2px solid black;
+  border-bottom: 0 solid #3f2305;
   background-color: transparent;
   outline: none;
   letter-spacing: 2px;
@@ -263,9 +273,12 @@ fieldset div input::placeholder {
 /*---------------------------------------------------Decision-Box+all-Button--------------------------------------------------------*/
 
 fieldset button,
-.after-battle button {
+.after-battle button,
+.box button {
   appearance: none;
   display: grid;
+  justify-content: center;
+  align-items: center;
 
   font-family: "indie flower";
   font-weight: 700;
@@ -275,24 +288,21 @@ fieldset button,
   border: none;
   padding: 0.7rem 1rem;
   margin-top: 1.5rem;
-  box-shadow: 0px 6px 8px 2px rgb(255, 99, 71, 0.3);
-  background: rgb(200, 77, 71, 0.9);
   font-size: 1.3rem;
-  color: #fff;
 
   cursor: pointer;
 }
 
 fieldset button:hover,
-.after-battle button:hover {
-  border: none;
+.after-battle button:hover,
+.box button:hover {
   font-size: 1.1rem;
-  background: rgb(255, 77, 71, 0.9);
-  box-shadow: 0px 3px 2px 1px rgb(255, 99, 71, 0.9);
+  box-shadow: 0px 6px 8px 2px rgb(245, 245, 245, 0.3);
 }
 
 fieldset button:active,
-.after-battle button:active {
+.after-battle button:active,
+.box button:active {
   border: none;
   box-shadow: none !important;
   transform: translateY(6px);
@@ -326,7 +336,9 @@ fieldset button:active,
 
 .header button {
   font-size: 2rem;
+  box-shadow: none;
   background-color: transparent;
+  color: rgb(63, 35, 5, 0.7);
   cursor: pointer;
   border: none;
 }
@@ -335,7 +347,7 @@ fieldset button:active,
 
 .game_and_score {
   flex: 1;
-  margin-top: -6%;
+  margin-top: -10%;
 
   display: grid;
   justify-content: center;
@@ -364,22 +376,6 @@ fieldset button:active,
   align-items: center;
 }
 
-.game_board :nth-child(5) {
-  border: 2px solid black;
-}
-
-.game_board :nth-child(2),
-.game_board :nth-child(8) {
-  border-right: 2px solid black;
-  border-left: 2px solid black;
-}
-
-.game_board :nth-child(4),
-.game_board :nth-child(6) {
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
-}
-
 .box button {
   font-family: "chalkboy";
   background-color: transparent;
@@ -387,9 +383,14 @@ fieldset button:active,
   border: none;
 
   cursor: pointer;
+  color: #3f2305;
 
   height: 6rem;
   width: 6rem;
+}
+
+.box button:hover {
+  font-size: 4rem;
 }
 
 /*--------------------------------------------------------Footer------------------------------------------------------------*/
@@ -407,16 +408,17 @@ fieldset button:active,
 /*------------------------------------------------------After-Battle------------------------------------------------------------*/
 
 .after-battle {
-  background-color: #eeeded;
+  background-color: rgb(223, 223, 222);
   padding: 2rem 1rem;
   font-size: 1.1rem;
+  width: 100%;
 
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 
-  border-radius: 100px;
+  border-radius: 60px;
 
   visibility: hidden;
 
@@ -425,12 +427,17 @@ fieldset button:active,
 
 .after-battle div:first-of-type {
   font-size: 1.4rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.after-battle div:last-of-type button:last-of-type {
+  background-color: rgb(223, 223, 222);
+  color: rgb(63, 35, 5, 0.7);
 }
 
 .after-battle table td {
   font-size: 1rem;
-  padding: 0.7rem 5rem;
+  padding: 0 5rem;
   text-align: center;
 }
 
